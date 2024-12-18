@@ -7,6 +7,7 @@ body {
 
 .team-container {
   display: flex;
+  flex-wrap: wrap; /* Allow wrapping of cards */
   justify-content: space-between;
 }
 
@@ -28,7 +29,7 @@ h1 {
   padding: 20px;
   margin: 15px auto;
   width: 280px;
-  max-width: 600px;
+  max-width: 100%; /* Allow cards to be responsive */
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
   text-align: center;
   transition: transform 0.3s, box-shadow 0.3s;
@@ -77,4 +78,30 @@ h1 {
 .card .content ul li {
   margin: 5px 0;
   color: #495057;
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+  .team-container {
+    flex-direction: column; /* Stack cards vertically */
+    align-items: center; /* Center align cards */
+  }
+
+  .card {
+    width: 90%; /* Make cards take up more width on smaller screens */
+  }
+
+  h1 {
+    font-size: 2em; /* Adjust header size */
+  }
+}
+
+@media (max-width: 480px) {
+  h1 {
+    font-size: 1.5em; /* Further adjust header size for very small screens */
+  }
+
+  .card h2 {
+    font-size: 1.5em; /* Adjust card title size */
+  }
 }
